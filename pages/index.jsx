@@ -1,8 +1,9 @@
 import React from 'react'
 import "jquery";
 import "popper.js/dist/umd/popper" 
-import "bootstrap/dist/js/bootstrap";
+// import "bootstrap/dist/js/bootstrap";
 import "bootstrap/dist/css/bootstrap.css"; 
+import {Product, FooterBanner, HeroBanner} from '../components'
 
 const Home = () => {
   let overideClass = {
@@ -15,15 +16,15 @@ const Home = () => {
   return (
     <div style={overideClass}>
       <div className='products-heading'>
-      HeroBanner
-      <div>
-        <h2>Best Selling Products</h2>
-        <p>Speakers of many variations</p>
-      </div>
-      <div>
-        {['Product 1', 'Product 2'].map((product)=> product)}
-      </div>
-      Footer
+        <HeroBanner></HeroBanner>
+        <div>
+          <h2>Best Selling Products</h2>
+          <p>Speakers of many variations</p>
+        </div>
+        <div className='products-container'>
+          {['Product 1', 'Product 2'].map((product)=> product)}
+        </div>
+        Footer
       </div>
     </div>
   )
