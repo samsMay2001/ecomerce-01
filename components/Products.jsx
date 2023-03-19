@@ -1,6 +1,7 @@
 import { urlFor } from '@/lib/client';
 import React from 'react';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 
 const Product = ({ product: { image, name, slug, price } }) => {
   const router = useRouter();
@@ -21,6 +22,8 @@ const Product = ({ product: { image, name, slug, price } }) => {
 
   return (
     <div>
+      <Link href={`/product/${slug.current}`}>
+      </Link>
       <div className="product-card" onClick={handleClick}>
         <img className="product-image" src={urlFor(image && image[0])} width={250} alt="" />
         <p className='product-name' style={productStyle1}>{name}</p>
