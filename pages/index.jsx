@@ -13,7 +13,6 @@ const Home = ({products, bannerData}) => {
     color: 'black',
     height: '100%',
     width: '100%',
-    position: 'absolute'
   }
   return (
     <div style={overideClass}>
