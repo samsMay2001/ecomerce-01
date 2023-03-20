@@ -1,3 +1,4 @@
+import { useStateContext } from '@/context/StateContext';
 import { urlFor, client } from '@/lib/client';
 import React, {useState} from 'react'
 import { AiFillStar, AiOutlineMinus, AiOutlinePlus, AiOutlineStar } from 'react-icons/ai';
@@ -5,7 +6,7 @@ import Products from '../../components/Products'
 const ProductDetails = ({products, product}) => {
     // read on how routing is done, especially file based routing in nextjs the answer this: 
     // why do you name this file like this []
-
+    const {decQty, incQty, qty} = useStateContext()
     const {image, name, details, price} = product; 
     let style1 = {
         // border: '1px dashed grey'
@@ -61,13 +62,13 @@ const ProductDetails = ({products, product}) => {
                         <div className='Quantity'>
                             <h3>Quantity:</h3>
                             <p className='quantity-desc'>
-                                <span className='minus' onClick=''>
+                                <span className='minus' onClick={decQty}>
                                     <AiOutlineMinus />
                                 </span>
                                 <span className='num' onClick=''>
-                                    0
+                                    {qty}
                                 </span>
-                                <span className='plus' onClick=''>
+                                <span className='plus' onClick={incQty}>
                                     <AiOutlinePlus/>
                                 </span>
                             </p>
