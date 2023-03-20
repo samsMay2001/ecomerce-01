@@ -1,5 +1,5 @@
 import { urlFor, client } from '@/lib/client';
-import React from 'react'
+import React, {useState} from 'react'
 import { AiFillStar, AiOutlineMinus, AiOutlinePlus, AiOutlineStar } from 'react-icons/ai';
 import Products from '../../components/Products'
 const ProductDetails = ({products, product}) => {
@@ -15,24 +15,34 @@ const ProductDetails = ({products, product}) => {
         position : 'absolute',
         top: '0', 
         right: '0',
-        width : '7cm'
+        width : '10cm'
     }
     let style3 = {
         // border : '1px dashed grey',
         position : 'relative'
     }
+    let [index, setIndex] = useState(0)
+    console.log(products)
     return (
         <div>
             <div className='product-detail-container' style={style3}>
                 <div style={style1}>
                     <div className='image-container'>
-                        <img src={urlFor(image && image[0])} />
+                        <img src={urlFor(image && image[index])} className="product-detail-image" />
                     </div>
-                    {/* <div className='small-images-container'>
-                        {images?.map((item, i)=> {
-                            <img src={urlFor(item)} />
-                        })}
-                    </div> */}
+                    <div className='small-images-container'>
+                        {image?.map((item, i)=> (
+                            <img
+                                src={urlFor(item)}
+                                className = {
+                                    i === index ? 
+                                    'small-image selected-image' : 
+                                    'small-image'
+                                }
+                                onMouseEnter = {()=> {setIndex(i)}}
+                             />
+                        ))}
+                    </div>
                     <div className='product-detail-desc' style={style2}>
                         <h1>{name}</h1>
                         <div className='reviews'>
