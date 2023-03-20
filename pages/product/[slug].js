@@ -23,7 +23,6 @@ const ProductDetails = ({products, product}) => {
         position : 'relative'
     }
     let [index, setIndex] = useState(0)
-    console.log(products)
     return (
         <div>
             <div className='product-detail-container' style={style3}>
@@ -74,7 +73,9 @@ const ProductDetails = ({products, product}) => {
                             </p>
                         </div>
                         <div className='buttons'>
-                            <button className='add-to-cart' onClick='' type='button'>
+                            <button className='add-to-cart' onClick={()=>{
+                                onAdd(product, qty)
+                            }} type='button'>
                                 Add To Cart
                             </button>
                             <button className='buy-now' onClick='' type='button'>
