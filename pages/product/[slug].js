@@ -6,7 +6,7 @@ import Products from '../../components/Products'
 const ProductDetails = ({products, product}) => {
     // read on how routing is done, especially file based routing in nextjs the answer this: 
     // why do you name this file like this []
-    const {decQty, incQty, qty} = useStateContext()
+    const {decQty, incQty, qty, onAdd} = useStateContext()
     const {image, name, details, price} = product; 
     let style1 = {
         // border: '1px dashed grey'
@@ -64,7 +64,7 @@ const ProductDetails = ({products, product}) => {
                                 <span className='minus' onClick={decQty}>
                                     <AiOutlineMinus />
                                 </span>
-                                <span className='num' onClick=''>
+                                <span className='num'>
                                     {qty}
                                 </span>
                                 <span className='plus' onClick={incQty}>
